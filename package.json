@@ -1,0 +1,68 @@
+{
+    "name": "incident-management",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@cap-js/audit-logging": "^0.6.0",
+        "@sap/ams": "latest",
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/xssec": "^3.6.1",
+        "express": "^4",
+        "hdb": "^0.19.0",
+        "passport": "^0.7.0"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/ams-dev": "latest",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "UI5-1.120",
+        "axios": "^1.6.7",
+        "chai": "^4.4.1",
+        "chai-as-promised": "^7.1.1",
+        "chai-subset": "^1.6.0",
+        "jest": "^29.7.0",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "test": "jest tests/test.js",
+        "start": "cds-serve",
+        "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy incident-management --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "[development]": {
+                "auth": {
+                    "kind": "ias",
+                    "users": {
+                        "alice": {
+                            "policies": [
+                                "cap.support"
+                            ]
+                        },
+                        "bob": {}
+                    },
+                    "ams": {
+                        "autoCompile": true,
+                        "cache": {
+                            "TTL": 0
+                        }
+                    }
+                }
+            },
+            "[production]": {
+                "db": "hana-cloud",
+                "auth": "ias"
+            }
+        }
+    },
+    "sapux": [
+        "app/incidents"
+    ]
+}
