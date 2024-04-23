@@ -6,21 +6,20 @@
     "license": "UNLICENSED",
     "private": true,
     "dependencies": {
-        "@cap-js/audit-logging": "^0.6.0",
-        "@sap/ams": "latest",
-        "@sap/cds": "^7",
+        "@sap/ams": "^1.14.2",
+        "@sap/cds": "^7.0",
         "@sap/cds-hana": "^2",
-        "@sap/xssec": "^3.6.1",
+        "@sap/xssec": "^3.3.5",
         "express": "^4",
-        "hdb": "^0.19.0",
-        "passport": "^0.7.0"
+        "passport": "^0",
+        "hdb": "^0.19.0"
     },
     "devDependencies": {
         "@cap-js/sqlite": "^1",
-        "@sap/ams-dev": "latest",
+        "@sap/ams-dev": "^0.8.3",
         "@sap/cds-dk": "^7",
-        "@sap/ux-specification": "UI5-1.120",
-        "axios": "^1.6.7",
+        "@sap/ux-specification": "^1.120.6",
+        "axios": "^1.6.8",
         "chai": "^4.4.1",
         "chai-as-promised": "^7.1.1",
         "chai-subset": "^1.6.0",
@@ -39,25 +38,27 @@
         "requires": {
             "[development]": {
                 "auth": {
-                    "kind": "ias",
+                    "Kind": "mocked",
                     "users": {
                         "alice": {
-                            "policies": [
+                            "policies" : [
                                 "cap.support"
                             ]
-                        },
-                        "bob": {}
+                          },
+                          "bob": {
+                          }
                     },
-                    "ams": {
-                        "autoCompile": true,
-                        "cache": {
-                            "TTL": 0
-                        }
-                    }
+                    "ams" : {
+                        "autoCompile" : true,
+                        "cache" : {
+                              "TTL" : 0
+                          }
+                    }    
                 }
+                
             },
             "[production]": {
-                "db": "hana-cloud",
+                "db": "hana",
                 "auth": "ias"
             }
         }

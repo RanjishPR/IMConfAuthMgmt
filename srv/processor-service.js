@@ -27,4 +27,4 @@ class ProcessorService extends cds.ApplicationService {
       return req.reject(`Can't modify a closed incident`)
   }
 }
-module.exports = ProcessorService
+module.exports = { ProcessorService }

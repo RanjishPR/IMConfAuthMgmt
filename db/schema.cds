@@ -20,7 +20,8 @@ conversation  : Composition of many {
 /**
 * Customers entitled to create support Incidents.
 */
-entity Customers : cuid, managed { 
+entity Customers : managed { 
+key ID        : String;
 firstName     : String;
 lastName      : String;
 email         : EMailAddress;

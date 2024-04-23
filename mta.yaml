@@ -12,13 +12,15 @@ modules:
     parameters:
       config:
          credential-type: "X509_GENERATED"
+  properties:
+    AMS_DCL_ROOT: "ams/dcl"
   provides:
   - name: srv-api
     properties:
       srv-url: ${default-url}
-      AMS_DCL_ROOT: "ams/dcl"
+      
   parameters:
-    buildpack: 
+    buildpacks:
       - https://github.com/SAP/cloud-authorization-buildpack/releases/latest/download/opa_buildpack.zip
       - nodejs_buildpack
   build-parameters:

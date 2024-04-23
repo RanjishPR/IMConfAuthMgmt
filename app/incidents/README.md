@@ -1,9 +1,9 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Thu Feb 29 2024 07:03:16 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Fri Mar 22 2024 21:38:41 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
-|**App Generator Version**<br>1.12.4|
+|**App Generator Version**<br>1.13.0|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local Cap|
@@ -12,7 +12,7 @@
 |**Application Title**<br>Incident-Management|
 |**Namespace**<br>ns|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.120.9|
+|**UI5 Version**<br>1.122.0|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
