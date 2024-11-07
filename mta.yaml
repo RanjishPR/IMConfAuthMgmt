@@ -21,10 +21,26 @@ modules:
       
   parameters:
     buildpacks:
-      - https://github.com/SAP/cloud-authorization-buildpack/releases/latest/download/opa_buildpack.zip
       - nodejs_buildpack
   build-parameters:
     builder: npm
+- name: incident-management-ams-policies-deployer
+  type: javascript.nodejs
+  path: gen/policies
+  parameters:
+    buildpack: nodejs_buildpack
+    no-route: true
+    no-start: true
+    tasks:
+      - name: deploy-dcl
+        command: npm start
+        memory: 512M
+  requires:
+    - name: incident-management-auth
+      parameters:
+        config:
+          credential-type: X509_GENERATED
+          app-identifier: policy-deployer
 - name: incident-management-db-deployer
   type: hdb
   path: gen/db
@@ -103,7 +119,7 @@ resources:
             Type: HTTP
             URL: https://ui5.sap.com
           - Authentication: NoAuthentication
-            HTML5.IASDependencyName: incidents-api
+            HTML5.IASDependencyName: incidents-api-ams
             Name: incident-management-srv-api
             ProxyType: Internet
             Type: HTTP

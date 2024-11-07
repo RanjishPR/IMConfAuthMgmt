@@ -5,7 +5,7 @@
     },
     "provided-apis": [
         {
-          "name": "incidents-api",
+          "name": "incidents-api-ams",
           "description": "api exposed by incident mgmt app"
         }
       ],
